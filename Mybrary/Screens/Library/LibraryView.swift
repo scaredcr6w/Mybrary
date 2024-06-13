@@ -9,8 +9,18 @@ import SwiftUI
 
 struct LibraryView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            CardView(cardTitle: "Olvasott",
+                     cardDescription: "",
+                     cardImage: "bookCardRead")
+            
+            CardView(cardTitle: "Olvasatlan",
+                     cardDescription: "",
+                     cardImage: "bookCardNotRead")
+        }
+        .padding()
     }
+        
 }
 
 #Preview {

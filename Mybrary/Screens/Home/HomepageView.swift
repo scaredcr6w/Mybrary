@@ -9,7 +9,8 @@ import SwiftUI
 
 struct HomepageView: View {
     var body: some View {
-        Text("Otthon")
+        Text("Otthon: Itt lesznek az újdonságok és toplisták")
+        
     }
 }
 
