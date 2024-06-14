@@ -18,7 +18,13 @@ struct HeaderScrollView: View {
                                  cardDescription: card.cardDescription,
                                  cardColor: card.cardColor,
                                  cardIcon: card.cardIcon)
-                    .containerRelativeFrame(.horizontal, count: 1, spacing: 16)
+                    .containerRelativeFrame(.horizontal,
+                                            count: 1,
+                                            spacing: 16)
+                    .scrollTransition{ content, phase in
+                            content
+                                .opacity(phase.isIdentity ? 1.0 : 0.35)
+                    }
                     
                 }
             }
