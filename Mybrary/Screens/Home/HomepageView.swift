@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct HomepageView: View {
-    var body: some View {
-        Text("Otthon: Itt lesznek az újdonságok és toplisták")
-        
+    var body: some View{
+        VStack{
+            HeaderScrollView()
+            Spacer()
+        }
     }
 }
 

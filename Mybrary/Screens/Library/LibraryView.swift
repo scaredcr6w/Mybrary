@@ -10,11 +10,11 @@ import SwiftUI
 struct LibraryView: View {
     var body: some View {
         VStack{
-            CardView(cardTitle: "Olvasott",
+            WideCardView(cardTitle: "Olvasott",
                      cardDescription: "",
                      cardImage: "bookCardRead")
             
-            CardView(cardTitle: "Olvasatlan",
+            WideCardView(cardTitle: "Olvasatlan",
                      cardDescription: "",
                      cardImage: "bookCardNotRead")
         }
