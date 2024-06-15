@@ -31,7 +31,7 @@ struct HeaderScrollView: View {
             .scrollTargetLayout()
         }
         .frame(height: 340)
-        .contentMargins(25, for: .scrollContent)
+        .contentMargins(30, for: .scrollContent)
         .scrollIndicators(.hidden)
         .scrollTargetBehavior(.viewAligned)
     }

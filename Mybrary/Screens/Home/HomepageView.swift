@@ -9,10 +9,18 @@ import SwiftUI
 
 struct HomepageView: View {
     var body: some View{
-        VStack{
-            HeaderScrollView()
-            Spacer()
+        ScrollView(.vertical){
+            VStack{
+                HeaderScrollView()
+                Text("Újdonságok")
+                    .bold()
+                    .font(.system(size: 30))
+                WideCardView(cardTitle: "Libri Top 100", cardDescription: "Card", cardImage: "bookCardRead")
+                WideCardView(cardTitle: "Új megjelenések", cardDescription: "Card", cardImage: "bookCardRead")
+                WideCardView(cardTitle: "Előrendelhetők", cardDescription: "Card", cardImage: "bookCardRead")
+            }
         }
+        
     }
 }
 

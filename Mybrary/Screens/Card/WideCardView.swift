@@ -28,9 +28,9 @@ struct WideCardView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()
-            .frame(width: 320, height: 80)
+            .frame(width: 325, height: 80)
         }
-        .frame(width: 320, height: 250)
+        .frame(width: 325, height: 250)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(radius: 10)
