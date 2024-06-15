@@ -10,7 +10,7 @@ import SwiftUI
 struct LibraryView: View {
     var body: some View {
         NavigationStack{
-            List{
+            LazyVStack(spacing: 16){
                 WideCardView(cardTitle: "Olvasott",
                              cardDescription: "",
                              cardImage: "bookCardRead")
