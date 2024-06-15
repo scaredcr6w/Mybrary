@@ -10,7 +10,7 @@ import SwiftUI
 struct HomepageView: View {
     var body: some View{
         ScrollView(.vertical){
-            VStack{
+            VStack(spacing: 30){
                 HeaderScrollView()
                 Text("Újdonságok")
                     .bold()

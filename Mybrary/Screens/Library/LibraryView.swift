@@ -9,16 +9,18 @@ import SwiftUI
 
 struct LibraryView: View {
     var body: some View {
-        VStack{
-            WideCardView(cardTitle: "Olvasott",
-                     cardDescription: "",
-                     cardImage: "bookCardRead")
-            
-            WideCardView(cardTitle: "Olvasatlan",
-                     cardDescription: "",
-                     cardImage: "bookCardNotRead")
+        NavigationStack{
+            List{
+                WideCardView(cardTitle: "Olvasott",
+                             cardDescription: "",
+                             cardImage: "bookCardRead")
+                
+                WideCardView(cardTitle: "Olvasatlan",
+                             cardDescription: "",
+                             cardImage: "bookCardNotRead")
+            }
+            .navigationTitle("Könyvtáram")
         }
-        .padding()
     }
         
 }

@@ -17,8 +17,7 @@ struct ListCardView: View {
             Image(cover)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: 80)
-                .padding(8)
+                .frame(maxWidth: 100, maxHeight: 100)
                 
             VStack(alignment: .leading){
                 Text(title)
@@ -27,9 +26,9 @@ struct ListCardView: View {
                 Text(author)
                 
             }
-            .padding()
+            .padding(.trailing)
         }
-        .frame(height: 100)
+        .frame(width: 340, height: 120, alignment: .leading)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(radius: 10)

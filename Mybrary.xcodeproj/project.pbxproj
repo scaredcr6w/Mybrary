@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F0F49A52C1D857800552562 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F49A42C1D857800552562 /* ListView.swift */; };
 		0F0F49A72C1D85DC00552562 /* ListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F49A62C1D85DC00552562 /* ListCardView.swift */; };
 		0F12DE632C1B34F200DA0187 /* WhislistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12DE622C1B34F200DA0187 /* WhislistViewModel.swift */; };
 		0F12DE662C1B378000DA0187 /* WideCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12DE652C1B378000DA0187 /* WideCardView.swift */; };
@@ -45,7 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0F0F49A42C1D857800552562 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		0F0F49A62C1D85DC00552562 /* ListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardView.swift; sourceTree = "<group>"; };
 		0F12DE622C1B34F200DA0187 /* WhislistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhislistViewModel.swift; sourceTree = "<group>"; };
 		0F12DE652C1B378000DA0187 /* WideCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCardView.swift; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				0F3374062BF8C20E004B72C8 /* HomepageView.swift */,
-				0F0F49A42C1D857800552562 /* ListView.swift */,
 				0FA38E5F2C1C9AD700768A0F /* HeaderScrollView */,
 			);
 			path = Home;
@@ -347,7 +344,6 @@
 				0F3373DB2BF8B8B8004B72C8 /* ContentView.swift in Sources */,
 				0F33740F2BF8C3C7004B72C8 /* WishlistView.swift in Sources */,
 				0F3373D92BF8B8B8004B72C8 /* MybraryApp.swift in Sources */,
-				0F0F49A52C1D857800552562 /* ListView.swift in Sources */,
 				0FA38E5E2C1C949100768A0F /* HeaderScrollView.swift in Sources */,
 				0F12DE662C1B378000DA0187 /* WideCardView.swift in Sources */,
 				0F3374112BF8C5BA004B72C8 /* MainTabView.swift in Sources */,

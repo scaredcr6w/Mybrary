@@ -8,19 +8,12 @@
 import Foundation
 import SwiftUI
 
-class HeaderCards : Identifiable{
+struct HeaderCards : Identifiable{
     let id = UUID()
     let cardTitle: String
     let cardDescription: String
     let cardColor: Color
     let cardIcon: String
-    
-    init(cardTitle: String, cardDescription: String, cardColor: Color, cardIcon: String) {
-        self.cardTitle = cardTitle
-        self.cardDescription = cardDescription
-        self.cardColor = cardColor
-        self.cardIcon = cardIcon
-    }
 }
 
 class HeaderScrollViewModel : ObservableObject{

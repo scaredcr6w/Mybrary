@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct WishlistView: View {
+    @ObservedObject var viewModel = WishlistViewModel()
+    
     var body: some View {
-        Text("Kívánságlista")
+        NavigationStack{
+            List(viewModel.wishlistData){ data in
+                ListCardView(title: data.title, author: data.author, cover: data.cover)
+            }
+            .navigationTitle("Kívánságlista")
+        }
     }
 }
 
