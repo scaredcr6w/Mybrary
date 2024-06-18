@@ -6,10 +6,30 @@
 //
 
 import SwiftUI
+import Charts
 
 struct StatisticsView: View {
+    
+    @ObservedObject var viewModel = StatisticsViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            VStack(alignment: .leading){
+                Text("Olvasott könyvek: \(viewModel.booksArray.reduce(0) { $0 + $1.booksRead })")
+                    .bold()
+                    .font(.system(size: 24))
+                Chart{
+                    ForEach(viewModel.booksArray){ data in
+                        BarMark(x: .value("Hónap", data.month), y: .value("Könyvek", data.booksRead))
+                    }
+                }
+                .frame(height: 200)
+            }
+            .padding()
+            .navigationTitle("Statisztika")
+            
+            Spacer()
+        }
     }
 }
 

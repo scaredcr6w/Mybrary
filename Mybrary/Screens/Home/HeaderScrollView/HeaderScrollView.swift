@@ -12,7 +12,7 @@ struct HeaderScrollView: View {
     @ViewBuilder private func destinationView(for card: HeaderCards) -> some View{
         switch card.cardTitle{
         case "Statisztika":
-            Text("Statisztika oldal")
+            StatisticsView()
         case "Kihívások":
             ChallangesView()
         case "Év könyve":

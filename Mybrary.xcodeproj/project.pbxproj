@@ -24,6 +24,8 @@
 		0F3EADDB2C2206A000265BE1 /* ChallangesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EADDA2C2206A000265BE1 /* ChallangesView.swift */; };
 		0F3EADDD2C22084500265BE1 /* ChallangeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EADDC2C22084500265BE1 /* ChallangeCardView.swift */; };
 		0F3EADDF2C220B2800265BE1 /* ChallangesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EADDE2C220B2800265BE1 /* ChallangesViewModel.swift */; };
+		0F3EADE22C2215CA00265BE1 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EADE12C2215CA00265BE1 /* StatisticsView.swift */; };
+		0F3EADE42C22165E00265BE1 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EADE32C22165E00265BE1 /* StatisticsViewModel.swift */; };
 		0FA38E5A2C1C7F4700768A0F /* TallCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38E592C1C7F4700768A0F /* TallCardView.swift */; };
 		0FA38E5E2C1C949100768A0F /* HeaderScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38E5D2C1C949100768A0F /* HeaderScrollView.swift */; };
 		0FA38E612C1C9AF600768A0F /* HeaderScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38E602C1C9AF600768A0F /* HeaderScrollViewModel.swift */; };
@@ -67,6 +69,8 @@
 		0F3EADDA2C2206A000265BE1 /* ChallangesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallangesView.swift; sourceTree = "<group>"; };
 		0F3EADDC2C22084500265BE1 /* ChallangeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallangeCardView.swift; sourceTree = "<group>"; };
 		0F3EADDE2C220B2800265BE1 /* ChallangesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallangesViewModel.swift; sourceTree = "<group>"; };
+		0F3EADE12C2215CA00265BE1 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		0F3EADE32C22165E00265BE1 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		0FA38E592C1C7F4700768A0F /* TallCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallCardView.swift; sourceTree = "<group>"; };
 		0FA38E5D2C1C949100768A0F /* HeaderScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderScrollView.swift; sourceTree = "<group>"; };
 		0FA38E602C1C9AF600768A0F /* HeaderScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderScrollViewModel.swift; sourceTree = "<group>"; };
@@ -168,12 +172,13 @@
 		0F3374082BF8C2B4004B72C8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				0F3EADD92C22068C00265BE1 /* Challanges */,
+				0F3374102BF8C5BA004B72C8 /* MainTabView.swift */,
 				0F3374092BF8C2BF004B72C8 /* Home */,
 				0F33740A2BF8C2F2004B72C8 /* Library */,
 				0F33740D2BF8C3B4004B72C8 /* Wishlist */,
+				0F3EADD92C22068C00265BE1 /* Challanges */,
+				0F3EADE02C2215B100265BE1 /* Statistics */,
 				0F12DE642C1B377100DA0187 /* Card */,
-				0F3374102BF8C5BA004B72C8 /* MainTabView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -211,6 +216,15 @@
 				0F3EADDE2C220B2800265BE1 /* ChallangesViewModel.swift */,
 			);
 			path = Challanges;
+			sourceTree = "<group>";
+		};
+		0F3EADE02C2215B100265BE1 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				0F3EADE12C2215CA00265BE1 /* StatisticsView.swift */,
+				0F3EADE32C22165E00265BE1 /* StatisticsViewModel.swift */,
+			);
+			path = Statistics;
 			sourceTree = "<group>";
 		};
 		0FA38E5F2C1C9AD700768A0F /* HeaderScrollView */ = {
@@ -357,7 +371,9 @@
 				0FA38E5A2C1C7F4700768A0F /* TallCardView.swift in Sources */,
 				0FA38E612C1C9AF600768A0F /* HeaderScrollViewModel.swift in Sources */,
 				0F12DE632C1B34F200DA0187 /* WhislistViewModel.swift in Sources */,
+				0F3EADE22C2215CA00265BE1 /* StatisticsView.swift in Sources */,
 				0F33740C2BF8C348004B72C8 /* LibraryView.swift in Sources */,
+				0F3EADE42C22165E00265BE1 /* StatisticsViewModel.swift in Sources */,
 				0F3374072BF8C20E004B72C8 /* HomepageView.swift in Sources */,
 				0F3373DB2BF8B8B8004B72C8 /* ContentView.swift in Sources */,
 				0F33740F2BF8C3C7004B72C8 /* WishlistView.swift in Sources */,
