@@ -11,9 +11,7 @@ struct ChallangesView: View {
     @ObservedObject var viewModel = ChallangesViewModel()
     
     var body: some View {
-        NavigationStack{
-//            Text("Teljesítve")
-//                .fontWeight(.semibold)
+        
             ScrollView{
                 LazyVStack(spacing: 16){
                     Spacer()
@@ -21,10 +19,15 @@ struct ChallangesView: View {
                         ChallangeCardView(isCompleted: challange.isCompleted,
                                           challange: challange.challange,
                                           completedDate: challange.completedDate)
+                        .onTapGesture(count: 2, perform: {
+                            if !challange.isCompleted{
+                                viewModel.challangeUpdated(withId: challange.id)
+                            }
+                            
+                        })
                     }
                 }
-            }
-            .navigationTitle("Kihívások")
+            
         }
     }
 }

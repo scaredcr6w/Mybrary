@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ChallangeCardView: View {
     
-    @State var isCompleted: Bool
-    let challange: String
+    var isCompleted: Bool
+    var challange: String
     var completedDate: String
     
     var body: some View {
