@@ -18,8 +18,8 @@ struct HeaderCards : Identifiable{
 
 class HeaderScrollViewModel : ObservableObject{
     @Published var headerCardsArray: [HeaderCards] = [
-        HeaderCards(cardTitle: "Statisztika", cardDescription: "Nézd meg az ehavi adataid", cardColor: .accentColor, cardIcon: "chart.pie"),
-        HeaderCards(cardTitle: "Kihívások", cardDescription: "Nagyon nehéz", cardColor: .pink, cardIcon: "checkmark.square"),
-        HeaderCards(cardTitle: "Év könyve", cardDescription: "Az év abszolút győztese", cardColor: .mint, cardIcon: "flag.checkered")
+        HeaderCards(cardTitle: "Statisztika", cardDescription: "Nézd meg az ehavi adataid", cardColor: Color.primaryMaroon, cardIcon: "chart.pie"),
+        HeaderCards(cardTitle: "Kihívások", cardDescription: "Nagyon nehéz", cardColor: Color.primaryPink, cardIcon: "checkmark.square"),
+        HeaderCards(cardTitle: "Év könyve", cardDescription: "Az év abszolút győztese", cardColor: Color.primaryLightPink, cardIcon: "flag.checkered")
     ]
 }
