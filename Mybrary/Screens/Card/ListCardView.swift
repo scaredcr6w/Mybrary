@@ -10,7 +10,7 @@ import SwiftUI
 struct ListCardView: View {
     let title: String
     let author: String
-    let cover: String
+    let cover: String = "placeholdercover"
     
     var body: some View {
         HStack{
@@ -36,5 +36,5 @@ struct ListCardView: View {
 }
 
 #Preview {
-    ListCardView(title: "Feljegyzések az egérlyukból", author: "Dosztojevszkij", cover: "placeholdercover")
+    ListCardView(title: "Feljegyzések az egérlyukból", author: "Dosztojevszkij")
 }

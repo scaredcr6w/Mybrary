@@ -6,17 +6,6 @@
 //
 
 import Foundation
+import SwiftData
+import SwiftUI
 
-struct WishlistCardData: Identifiable{
-    let id = UUID()
-    let title: String
-    let author: String
-    let cover: String
-}
-
-class WishlistViewModel : ObservableObject{
-    @Published var wishlistData: [WishlistCardData] = [
-        .init(title: "Feljegyzések az egérlyukból", author: "Dosztojevszkij", cover: "placeholdercover"),
-        .init(title: "Karamazov testvérek", author: "Dosztojevszkij", cover: "placeholdercover2")
-    ]
-}
