@@ -328,11 +328,12 @@
 			};
 			buildConfigurationList = 0F3373D02BF8B8B8004B72C8 /* Build configuration list for PBXProject "Mybrary" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = hu;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				hu,
 			);
 			mainGroup = 0F3373CC2BF8B8B8004B72C8;
 			productRefGroup = 0F3373D62BF8B8B8004B72C8 /* Products */;

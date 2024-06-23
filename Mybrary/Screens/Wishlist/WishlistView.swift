@@ -15,17 +15,16 @@ struct WishlistView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVStack (spacing: 16){
-                    Spacer()
-                    ForEach(wishlistData) { data in
+            List {
+                ForEach(wishlistData) { data in
+                    Section{
                         ListCardView(title: data.title, author: data.author)
-                            .background(Color.clear)
                     }
-                    .onDelete{ indexSet in
-                        for i in indexSet {
-                            context.delete(wishlistData[i])
-                        }
+                }
+                .onDelete { indexSet in
+                    for index in indexSet {
+                        context.delete(wishlistData[index])
+                        
                     }
                 }
             }
@@ -36,7 +35,7 @@ struct WishlistView: View {
             .toolbar {
                 if !wishlistData.isEmpty {
                     Button("Új könyv", systemImage: "plus"){
-                        isShowingSheet = true   
+                        isShowingSheet = true
                     }
                 }
             }

@@ -31,7 +31,6 @@ struct ListCardView: View {
         .frame(width: 340, height: 120, alignment: .leading)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .shadow(radius: 10)
     }
 }
 
