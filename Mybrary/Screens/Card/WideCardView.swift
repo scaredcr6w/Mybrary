@@ -22,9 +22,11 @@ struct WideCardView: View {
                 Text(cardTitle)
                     .bold()
                     .font(.system(size: 24))
+                    .foregroundStyle(Color.black)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Text(cardDescription)
                     .font(.system(size: 16))
+                    .foregroundStyle(Color.black)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()

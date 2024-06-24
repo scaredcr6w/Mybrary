@@ -11,13 +11,16 @@ struct LibraryView: View {
     var body: some View {
         NavigationStack{
             LazyVStack(spacing: 16){
-                WideCardView(cardTitle: "Olvasott",
-                             cardDescription: "",
-                             cardImage: "bookCardRead")
-                
-                WideCardView(cardTitle: "Olvasatlan",
-                             cardDescription: "",
-                             cardImage: "bookCardNotRead")
+                NavigationLink(destination: LibraryListView(isReadPage: true)) {
+                    WideCardView(cardTitle: "Olvasott",
+                                 cardDescription: "",
+                                 cardImage: "bookCardRead")
+                }
+                NavigationLink(destination: LibraryListView(isReadPage: false)) {
+                    WideCardView(cardTitle: "Olvasatlan",
+                                 cardDescription: "",
+                                 cardImage: "bookCardNotRead")
+                }
             }
             .navigationTitle("Könyvtáram")
         }
