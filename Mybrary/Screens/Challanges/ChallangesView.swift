@@ -37,13 +37,14 @@ struct ChallangesView: View {
             .navigationTitle("Kihívások")
             .onAppear {
                 if challangesData.isEmpty {
-                    viewModel.challanges.forEach { challange in
+                    viewModel.challenges.forEach { challange in
                         context.insert(challange)
                     }
                 }
             }
         }
     }
+    
     
     func dateFormat() -> String {
         let dateFormatter = DateFormatter()
