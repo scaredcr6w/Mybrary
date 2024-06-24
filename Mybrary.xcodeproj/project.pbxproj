@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0F0F49A72C1D85DC00552562 /* ListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F49A62C1D85DC00552562 /* ListCardView.swift */; };
-		0F12DE632C1B34F200DA0187 /* WhislistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12DE622C1B34F200DA0187 /* WhislistViewModel.swift */; };
 		0F12DE662C1B378000DA0187 /* WideCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F12DE652C1B378000DA0187 /* WideCardView.swift */; };
 		0F3373D92BF8B8B8004B72C8 /* MybraryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3373D82BF8B8B8004B72C8 /* MybraryApp.swift */; };
 		0F3373DB2BF8B8B8004B72C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3373DA2BF8B8B8004B72C8 /* ContentView.swift */; };
@@ -23,9 +22,10 @@
 		0F3374112BF8C5BA004B72C8 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3374102BF8C5BA004B72C8 /* MainTabView.swift */; };
 		0F3EADDB2C2206A000265BE1 /* ChallangesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EADDA2C2206A000265BE1 /* ChallangesView.swift */; };
 		0F3EADDD2C22084500265BE1 /* ChallangeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EADDC2C22084500265BE1 /* ChallangeCardView.swift */; };
-		0F3EADDF2C220B2800265BE1 /* ChallangesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EADDE2C220B2800265BE1 /* ChallangesViewModel.swift */; };
 		0F3EADE22C2215CA00265BE1 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EADE12C2215CA00265BE1 /* StatisticsView.swift */; };
 		0F3EADE42C22165E00265BE1 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EADE32C22165E00265BE1 /* StatisticsViewModel.swift */; };
+		0F45C27F2C29D64600F10EC4 /* Challange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45C27E2C29D64600F10EC4 /* Challange.swift */; };
+		0F45C2812C29DA6F00F10EC4 /* ChallangesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F45C2802C29DA6F00F10EC4 /* ChallangesViewModel.swift */; };
 		0F7A56EA2C26DB2B00B5EBCD /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A56E92C26DB2B00B5EBCD /* Book.swift */; };
 		0F8C81A02C297B20003D2E35 /* LibraryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C819F2C297B20003D2E35 /* LibraryListView.swift */; };
 		0F8C81A32C297DE3003D2E35 /* AddNewBookSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C81A22C297DE3003D2E35 /* AddNewBookSheet.swift */; };
@@ -53,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		0F0F49A62C1D85DC00552562 /* ListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardView.swift; sourceTree = "<group>"; };
-		0F12DE622C1B34F200DA0187 /* WhislistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhislistViewModel.swift; sourceTree = "<group>"; };
 		0F12DE652C1B378000DA0187 /* WideCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCardView.swift; sourceTree = "<group>"; };
 		0F3373D52BF8B8B8004B72C8 /* Mybrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mybrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F3373D82BF8B8B8004B72C8 /* MybraryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MybraryApp.swift; sourceTree = "<group>"; };
@@ -71,9 +70,10 @@
 		0F3374102BF8C5BA004B72C8 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		0F3EADDA2C2206A000265BE1 /* ChallangesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallangesView.swift; sourceTree = "<group>"; };
 		0F3EADDC2C22084500265BE1 /* ChallangeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallangeCardView.swift; sourceTree = "<group>"; };
-		0F3EADDE2C220B2800265BE1 /* ChallangesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallangesViewModel.swift; sourceTree = "<group>"; };
 		0F3EADE12C2215CA00265BE1 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		0F3EADE32C22165E00265BE1 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
+		0F45C27E2C29D64600F10EC4 /* Challange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challange.swift; sourceTree = "<group>"; };
+		0F45C2802C29DA6F00F10EC4 /* ChallangesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallangesViewModel.swift; sourceTree = "<group>"; };
 		0F7A56E92C26DB2B00B5EBCD /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		0F8C819F2C297B20003D2E35 /* LibraryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListView.swift; sourceTree = "<group>"; };
 		0F8C81A22C297DE3003D2E35 /* AddNewBookSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookSheet.swift; sourceTree = "<group>"; };
@@ -213,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				0F33740E2BF8C3C7004B72C8 /* WishlistView.swift */,
-				0F12DE622C1B34F200DA0187 /* WhislistViewModel.swift */,
 			);
 			path = Wishlist;
 			sourceTree = "<group>";
@@ -222,7 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				0F3EADDA2C2206A000265BE1 /* ChallangesView.swift */,
-				0F3EADDE2C220B2800265BE1 /* ChallangesViewModel.swift */,
+				0F45C2802C29DA6F00F10EC4 /* ChallangesViewModel.swift */,
 			);
 			path = Challanges;
 			sourceTree = "<group>";
@@ -240,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				0F7A56E92C26DB2B00B5EBCD /* Book.swift */,
+				0F45C27E2C29D64600F10EC4 /* Challange.swift */,
 			);
 			path = Schemas;
 			sourceTree = "<group>";
@@ -393,12 +393,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F0F49A72C1D85DC00552562 /* ListCardView.swift in Sources */,
-				0F3EADDF2C220B2800265BE1 /* ChallangesViewModel.swift in Sources */,
 				0FA38E5A2C1C7F4700768A0F /* TallCardView.swift in Sources */,
 				0FA38E612C1C9AF600768A0F /* HeaderScrollViewModel.swift in Sources */,
-				0F12DE632C1B34F200DA0187 /* WhislistViewModel.swift in Sources */,
 				0F3EADE22C2215CA00265BE1 /* StatisticsView.swift in Sources */,
 				0F33740C2BF8C348004B72C8 /* LibraryView.swift in Sources */,
+				0F45C27F2C29D64600F10EC4 /* Challange.swift in Sources */,
+				0F45C2812C29DA6F00F10EC4 /* ChallangesViewModel.swift in Sources */,
 				0F3EADE42C22165E00265BE1 /* StatisticsViewModel.swift in Sources */,
 				0F3374072BF8C20E004B72C8 /* HomepageView.swift in Sources */,
 				0F8C81A02C297B20003D2E35 /* LibraryListView.swift in Sources */,

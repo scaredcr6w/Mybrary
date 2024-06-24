@@ -14,6 +14,6 @@ struct MybraryApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Book.self])
+        .modelContainer(for: [Book.self, Challange.self])
     }
 }

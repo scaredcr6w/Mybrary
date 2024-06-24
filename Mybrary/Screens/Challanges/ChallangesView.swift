@@ -6,22 +6,28 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ChallangesView: View {
     @ObservedObject var viewModel = ChallangesViewModel()
+    @Environment(\.modelContext) private var context
+    @Query var challangesData: [Challange] = []
     
     var body: some View {
         NavigationStack{
             ScrollView {
                 LazyVStack(spacing: 16){
                     Spacer()
-                    ForEach(viewModel.challangesArray){ challange in
+                    ForEach(challangesData){ challange in
                         ChallangeCardView(isCompleted: challange.isCompleted,
                                           challange: challange.challange,
-                                          completedDate: challange.completedDate)
+                                          completedDate: challange.completedDate ?? "")
                         .onTapGesture(count: 2, perform: {
                             if !challange.isCompleted{
-                                viewModel.challangeUpdated(withId: challange.id)
+                                challange.isCompleted = true
+                                challange.completedDate = dateFormat()
+                            } else {
+                                challange.isCompleted = false
                             }
                             
                         })
@@ -29,7 +35,20 @@ struct ChallangesView: View {
                 }
             }
             .navigationTitle("Kihívások")
+            .onAppear {
+                if challangesData.isEmpty {
+                    viewModel.challanges.forEach { challange in
+                        context.insert(challange)
+                    }
+                }
+            }
         }
+    }
+    
+    func dateFormat() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyy.MM.dd"
+        return dateFormatter.string(from: Date())
     }
 }
 

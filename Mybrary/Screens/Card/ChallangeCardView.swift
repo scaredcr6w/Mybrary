@@ -40,5 +40,5 @@ struct ChallangeCardView: View {
 }
 
 #Preview {
-    ChallangeCardView(isCompleted: true, challange: "Olvass el egy könyvet", completedDate: "2024.06.18")
+    ChallangeCardView(isCompleted: true, challange: "Olvass el egy könyvet", completedDate: "2024.06.24")
 }
