@@ -31,7 +31,6 @@ struct LibraryListView: View {
                 .onDelete { indexSet in
                     for index in indexSet {
                         context.delete(libraryData[index])
-                        
                     }
                 }
             }

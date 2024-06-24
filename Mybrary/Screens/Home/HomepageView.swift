@@ -16,9 +16,15 @@ struct HomepageView: View {
                         Text("Újdonságok")
                             .bold()
                             .font(.system(size: 30))
-                        WideCardView(cardTitle: "Libri Top 100", cardDescription: "Card", cardImage: "bookCardRead")
-                        WideCardView(cardTitle: "Új megjelenések", cardDescription: "Card", cardImage: "bookCardRead")
-                        WideCardView(cardTitle: "Előrendelhetők", cardDescription: "Card", cardImage: "bookCardRead")
+                    Link(destination: URL(string: "https://www.libri.hu/sikerlista/?heti")!, label: {
+                        WideCardView(cardTitle: "Libri Sikerlista", cardDescription: "Legforróbb könyvek 🥵", cardImage: "bookCardRead")
+                    })
+                    Link(destination: URL(string: "https://www.libri.hu/ujdonsagok/")!, label: {
+                        WideCardView(cardTitle: "Új megjelenések", cardDescription: "Nagyon érdekes történetek?", cardImage: "bookCardRead")
+                    })
+                    Link(destination: URL(string: "https://www.libri.hu/elorendelheto/")!, label: {
+                        WideCardView(cardTitle: "Előrendelhetők", cardDescription: "Etesd a kapitalizmus gyomrát!", cardImage: "bookCardRead")
+                    })
                 }
                 .padding(.bottom, 30)
             }
