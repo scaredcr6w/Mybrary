@@ -42,6 +42,12 @@ struct WishlistView: View {
             .overlay{
                 if wishlistData.isEmpty {
                     ContentUnavailableView {
+                        Image(systemName: "list.bullet.clipboard")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                            .foregroundStyle(Color.gray)
+                            .padding()
                         Text("A kívánságlistád üres")
                         Button("Új könyv") {
                             isShowingSheet = true
@@ -50,7 +56,7 @@ struct WishlistView: View {
                 }
             }
         }
-        .edgesIgnoringSafeArea(.all)
+        
     }
 }
 

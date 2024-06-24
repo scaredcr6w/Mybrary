@@ -16,6 +16,9 @@ struct LibraryListView: View {
     var libraryData: [Book]
     
     var body: some View {
+        let filtered = libraryData.filter { book in
+            isReadPage ? book.isRead : !book.isRead
+        }
         NavigationStack {
             List {
                 ForEach(libraryData) { data in
@@ -37,16 +40,22 @@ struct LibraryListView: View {
                 AddNewBookSheet(isWishlisted: false, isRead: isReadPage)
             }
             .toolbar {
-                if !libraryData.isEmpty {
+                if !filtered.isEmpty {
                     Button("Új könyv", systemImage: "plus"){
                         isShowingSheet = true
                     }
                 }
             }
             .overlay{
-                if libraryData.isEmpty {
+                if filtered.isEmpty {
                     ContentUnavailableView {
-                        Text("A könyvtárad üres")
+                        Image(systemName: "list.bullet.clipboard")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                            .foregroundStyle(Color.gray)
+                            .padding()
+                        Text("Nincs könyv ebben a listában")
                         Button("Új könyv") {
                             isShowingSheet = true
                         }
@@ -54,7 +63,6 @@ struct LibraryListView: View {
                 }
             }
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
