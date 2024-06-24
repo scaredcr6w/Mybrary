@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ListCardView: View {
+    @Environment(\.colorScheme) var colorScheme
     let title: String
     let author: String
     let cover: String = "placeholdercover"
@@ -29,7 +30,7 @@ struct ListCardView: View {
             .padding(.trailing)
         }
         .frame(width: 340, height: 120, alignment: .leading)
-        .background(.white)
+//        .background(colorScheme == .dark ? Color.primaryGrey : Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }

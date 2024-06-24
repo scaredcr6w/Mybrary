@@ -11,8 +11,8 @@ struct ChallangesView: View {
     @ObservedObject var viewModel = ChallangesViewModel()
     
     var body: some View {
-        
-            ScrollView{
+        NavigationStack{
+            ScrollView {
                 LazyVStack(spacing: 16){
                     Spacer()
                     ForEach(viewModel.challangesArray){ challange in
@@ -27,7 +27,8 @@ struct ChallangesView: View {
                         })
                     }
                 }
-            
+            }
+            .navigationTitle("Kihívások")
         }
     }
 }

@@ -19,6 +19,7 @@ struct LibraryListView: View {
         let filtered = libraryData.filter { book in
             isReadPage ? book.isRead : !book.isRead
         }
+        
         NavigationStack {
             List {
                 ForEach(libraryData) { data in

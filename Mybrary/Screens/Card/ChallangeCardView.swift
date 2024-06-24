@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChallangeCardView: View {
-    
+    @Environment(\.colorScheme) var colorScheme
     var isCompleted: Bool
     var challange: String
     var completedDate: String
@@ -33,7 +33,7 @@ struct ChallangeCardView: View {
             .padding(.trailing)
         }
         .frame(width: 340, height: 120, alignment: .leading)
-        .background(.white)
+        .background(colorScheme == .dark ? Color.primaryGrey : Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(radius: 10)
     }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WideCardView: View {
+    @Environment(\.colorScheme) var colorScheme
     let cardTitle: String
     let cardDescription: String
     let cardImage: String
@@ -22,18 +23,18 @@ struct WideCardView: View {
                 Text(cardTitle)
                     .bold()
                     .font(.system(size: 24))
-                    .foregroundStyle(Color.black)
+                    .foregroundStyle(colorScheme == .dark ? Color.white : Color.black)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Text(cardDescription)
                     .font(.system(size: 16))
-                    .foregroundStyle(Color.black)
+                    .foregroundStyle(colorScheme == .dark ? Color.white : Color.black)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()
             .frame(width: 325, height: 80)
         }
         .frame(width: 325, height: 250)
-        .background(.white)
+        .background(colorScheme == .dark ? Color.primaryGrey : Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(radius: 10)
         
