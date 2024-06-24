@@ -11,11 +11,11 @@ import SwiftData
 struct LibraryListView: View {
     @Environment(\.modelContext) var context
     @State private var isShowingSheet: Bool = false
-    @State var isReadPage: Bool
-    @Query(filter: #Predicate<Book>{ $0.isWishlisted == false })
-    var libraryData: [Book]
+    var isReadPage: Bool
+    @Query(filter: #Predicate<Book>{ $0.isWishlisted == false }) var libraryData: [Book]
     
     var body: some View {
+        
         let filtered = libraryData.filter { book in
             isReadPage ? book.isRead : !book.isRead
         }
