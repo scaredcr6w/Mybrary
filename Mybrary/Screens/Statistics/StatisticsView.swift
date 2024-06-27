@@ -6,21 +6,23 @@
 //
 
 import SwiftUI
+import SwiftData
 import Charts
 
 struct StatisticsView: View {
     
-    @ObservedObject var viewModel = StatisticsViewModel()
+    @Environment(\.modelContext) var context
+    @Query(filter: #Predicate<Book>{ $0.isWishlisted }) var statisticsData: [Book]
     
     var body: some View {
         NavigationStack{
             VStack(alignment: .leading){
-                Text("Olvasott könyvek: \(viewModel.booksArray.reduce(0) { $0 + $1.booksRead })")
+                Text("Olvasott könyvek: ")
                     .bold()
                     .font(.system(size: 24))
                 Chart{
-                    ForEach(viewModel.booksArray){ data in
-                        BarMark(x: .value("Hónap", data.month), y: .value("Könyvek", data.booksRead))
+                    ForEach(statisticsData){ data in
+//                        BarMark(x: .value("Hónap", data.purchaseDate), y: .value("Könyvek", data.booksRead))
                     }
                 }
                 .frame(height: 200)

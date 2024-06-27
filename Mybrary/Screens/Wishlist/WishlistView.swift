@@ -17,8 +17,17 @@ struct WishlistView: View {
         NavigationStack {
             List {
                 ForEach(wishlistData) { data in
-                    Section{
-                        ListCardView(title: data.title, author: data.author)
+                    Section {
+                        NavigationLink(destination: BookDetailView(author: data.author,
+                                                                   title: data.title,
+                                                                   price: data.price,
+                                                                   purchaseDate: data.purchaseDate,
+                                                                   bookDescription: "Lorem ipsum",
+                                                                   rating: 5.0,
+                                                                   isWishlisted: data.isWishlisted,
+                                                                   isRead: data.isRead)){
+                            ListCardView(title: data.title, author: data.author)
+                        }
                     }
                 }
                 .onDelete { indexSet in

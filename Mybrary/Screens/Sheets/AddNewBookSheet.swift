@@ -15,8 +15,10 @@ struct AddNewBookSheet: View {
     @State private var author: String = ""
     @State private var price: Int = 0
     @State private var purchaseDate: Date = .now
-    @State var isWishlisted: Bool
-    @State var isRead: Bool
+    @State private var bookDescription: String = ""
+    @State private var rating: Decimal = 0.0
+    var isWishlisted: Bool
+    var isRead: Bool
     
     var body: some View {
         NavigationStack {
@@ -40,7 +42,7 @@ struct AddNewBookSheet: View {
                 }
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Button("Mentés"){
-                        let book = Book(author: author, title: title, price: price, purchaseDate: purchaseDate, isWishlisted: isWishlisted, isRead: isRead)
+                        let book = Book(author: author, title: title, price: price, purchaseDate: purchaseDate, bookDescription: "Lorem ipsum", rating: 5.0, isWishlisted: isWishlisted, isRead: isRead)
                         context.insert(book)
                         dismiss()
                     }
