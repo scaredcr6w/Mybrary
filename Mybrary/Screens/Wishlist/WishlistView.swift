@@ -12,6 +12,7 @@ struct WishlistView: View {
     @Environment(\.modelContext) var context
     @State private var isShowingSheet: Bool = false
     @State private var isShowingDetail: Bool = false
+    @State private var selectedBook: Book?
     @Query(filter: #Predicate<Book>{ $0.isWishlisted }) var wishlistData: [Book]
     
     var body: some View {
@@ -22,6 +23,7 @@ struct WishlistView: View {
                         Section {
                             ListCardView(title: data.title, author: data.author)
                                 .onTapGesture {
+                                    selectedBook = data
                                     isShowingDetail = true
                                 }
                         }
@@ -59,6 +61,12 @@ struct WishlistView: View {
                         }
                     }
                 }
+            }
+            .blur(radius: isShowingDetail ? 5 : 0)
+            .disabled(isShowingDetail)
+            
+            if isShowingDetail {
+                BookDetailView(isShowingDetail: $isShowingDetail, book: selectedBook!)
             }
         }
     }

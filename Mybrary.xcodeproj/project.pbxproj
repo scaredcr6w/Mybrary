@@ -29,6 +29,7 @@
 		0F7A56EA2C26DB2B00B5EBCD /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A56E92C26DB2B00B5EBCD /* Book.swift */; };
 		0F8C81A02C297B20003D2E35 /* LibraryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C819F2C297B20003D2E35 /* LibraryListView.swift */; };
 		0F8C81A32C297DE3003D2E35 /* AddNewBookSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C81A22C297DE3003D2E35 /* AddNewBookSheet.swift */; };
+		0F94924F2C2ED73E0069931C /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F94924E2C2ED73E0069931C /* DismissButton.swift */; };
 		0FA38E5A2C1C7F4700768A0F /* TallCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38E592C1C7F4700768A0F /* TallCardView.swift */; };
 		0FA38E5E2C1C949100768A0F /* HeaderScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38E5D2C1C949100768A0F /* HeaderScrollView.swift */; };
 		0FA38E612C1C9AF600768A0F /* HeaderScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38E602C1C9AF600768A0F /* HeaderScrollViewModel.swift */; };
@@ -77,6 +78,7 @@
 		0F7A56E92C26DB2B00B5EBCD /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		0F8C819F2C297B20003D2E35 /* LibraryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListView.swift; sourceTree = "<group>"; };
 		0F8C81A22C297DE3003D2E35 /* AddNewBookSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookSheet.swift; sourceTree = "<group>"; };
+		0F94924E2C2ED73E0069931C /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		0FA38E592C1C7F4700768A0F /* TallCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallCardView.swift; sourceTree = "<group>"; };
 		0FA38E5D2C1C949100768A0F /* HeaderScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderScrollView.swift; sourceTree = "<group>"; };
 		0FA38E602C1C9AF600768A0F /* HeaderScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderScrollViewModel.swift; sourceTree = "<group>"; };
@@ -179,8 +181,9 @@
 		0F3374082BF8C2B4004B72C8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				0F2648B72C2DBFCF0043A108 /* BookDetailView.swift */,
 				0F3374102BF8C5BA004B72C8 /* MainTabView.swift */,
+				0F9492502C2ED7680069931C /* Overlays */,
+				0F94924D2C2ED72F0069931C /* Buttons */,
 				0F8C81A12C297DD3003D2E35 /* Sheets */,
 				0F3374092BF8C2BF004B72C8 /* Home */,
 				0F33740A2BF8C2F2004B72C8 /* Library */,
@@ -250,6 +253,22 @@
 				0F8C81A22C297DE3003D2E35 /* AddNewBookSheet.swift */,
 			);
 			path = Sheets;
+			sourceTree = "<group>";
+		};
+		0F94924D2C2ED72F0069931C /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0F94924E2C2ED73E0069931C /* DismissButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		0F9492502C2ED7680069931C /* Overlays */ = {
+			isa = PBXGroup;
+			children = (
+				0F2648B72C2DBFCF0043A108 /* BookDetailView.swift */,
+			);
+			path = Overlays;
 			sourceTree = "<group>";
 		};
 		0FA38E5F2C1C9AD700768A0F /* HeaderScrollView */ = {
@@ -392,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F94924F2C2ED73E0069931C /* DismissButton.swift in Sources */,
 				0F0F49A72C1D85DC00552562 /* ListCardView.swift in Sources */,
 				0FA38E5A2C1C7F4700768A0F /* TallCardView.swift in Sources */,
 				0FA38E612C1C9AF600768A0F /* HeaderScrollViewModel.swift in Sources */,

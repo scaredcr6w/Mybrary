@@ -30,7 +30,7 @@ struct ListCardView: View {
             .padding(.trailing)
         }
         .frame(width: 340, height: 120, alignment: .leading)
-//        .background(colorScheme == .dark ? Color.primaryGrey : Color.white)
+        .border(.blue)
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
