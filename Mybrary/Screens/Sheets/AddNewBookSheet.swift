@@ -35,7 +35,7 @@ struct AddNewBookSheet: View {
                 }
                 
                 Section (header: Text("Ismertető")) {
-                    TextField("Mit tud ez a könyv?", text: $bookDescription)
+                    TextEditor(text: $bookDescription)
                         .frame(height: 100)
                 }
                 if !isWishlisted {
@@ -51,7 +51,8 @@ struct AddNewBookSheet: View {
                         }
                         .pickerStyle(.segmented)
                         
-                        TextField("Fejtsd ki szempontjaidat", text: $ratingBody)
+                        TextEditor(text: $ratingBody)
+                            .frame(height: 100)
                     }
                 }
             }
