@@ -83,7 +83,7 @@ struct AddNewBookSheet: View {
                             errorMessage = error.localizedDescription
                         }
                     }
-                    .alert("Validation Error",
+                    .alert("Hiba!",
                            isPresented: $isError,
                            actions: {
                         Button("OK", role: .cancel) { }
