@@ -15,13 +15,13 @@ class Book {
     var price: Int
     var purchaseDate: Date
     var bookDescription: String
-    var rating: Decimal
+    var rating: Int
     var ratingBody: String
     var isWishlisted: Bool
     var isRead: Bool
     
     
-    init(author: String, title: String, price: Int, purchaseDate: Date, bookDescription: String, rating: Decimal, ratingBody: String, isWishlisted: Bool, isRead: Bool) {
+    init(author: String, title: String, price: Int, purchaseDate: Date, bookDescription: String, rating: Int, ratingBody: String, isWishlisted: Bool, isRead: Bool) {
         self.author = author
         self.title = title
         self.price = price

@@ -34,7 +34,7 @@ struct BookDetailView: View {
             
             HStack {
                 ForEach(1...5, id: \.self) { index in
-                    StarView(isFilled: Decimal(index) <= book.rating)
+                    StarView(isFilled: index <= book.rating)
                 }
                 Text("(\(book.rating))")
             }
@@ -71,5 +71,5 @@ struct StarView: View {
 }
 
 #Preview {
-    BookDetailView(isShowingDetail: .constant(true), book: Book(author: "Sumb", title: "Sum book", price: 1200, purchaseDate: Date(), bookDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque feugiat arcu, eu vehicula velit hendrerit quis. Duis justo nibh, laoreet id massa quis, sagittis commodo odio. Nulla et nisl eu nisi ornare ultricies. Sed at tempor nunc. Proin sed arcu accumsan, tempor odio at, vulputate nibh. Vivamus ultrices porttitor eros id faucibus. Nunc sit amet sem sit amet justo condimentum aliquet. Nulla sit amet velit sodales, dignissim sapien nec, dictum augue. Praesent hendrerit accumsan mollis. Duis aliquet finibus finibus. Fusce sit amet finibus massa, a convallis augue. Sed a lorem urna. Nam nisl ante, fringilla fringilla elementum a, bibendum non ligula. Mauris dignissim neque vitae erat efficitur varius. Praesent ullamcorper leo quam, eu laoreet sem fringilla sit amet.", rating: 5.0, ratingBody: "Shii idk", isWishlisted: true, isRead: false))
+    BookDetailView(isShowingDetail: .constant(true), book: Book(author: "Sumb", title: "Sum book", price: 1200, purchaseDate: Date(), bookDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque feugiat arcu, eu vehicula velit hendrerit quis. Duis justo nibh, laoreet id massa quis, sagittis commodo odio. Nulla et nisl eu nisi ornare ultricies. Sed at tempor nunc. Proin sed arcu accumsan, tempor odio at, vulputate nibh. Vivamus ultrices porttitor eros id faucibus. Nunc sit amet sem sit amet justo condimentum aliquet. Nulla sit amet velit sodales, dignissim sapien nec, dictum augue. Praesent hendrerit accumsan mollis. Duis aliquet finibus finibus. Fusce sit amet finibus massa, a convallis augue. Sed a lorem urna. Nam nisl ante, fringilla fringilla elementum a, bibendum non ligula. Mauris dignissim neque vitae erat efficitur varius. Praesent ullamcorper leo quam, eu laoreet sem fringilla sit amet.", rating: 5, ratingBody: "Shii idk", isWishlisted: true, isRead: false))
 }

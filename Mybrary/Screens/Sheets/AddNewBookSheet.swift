@@ -18,7 +18,7 @@ struct AddNewBookSheet: View {
     @State private var price: Int = 0
     @State private var purchaseDate: Date = .now
     @State private var bookDescription: String = ""
-    @State private var rating: Decimal = 0.0
+    @State private var rating: Int = 0
     @State private var ratingBody: String = ""
     
     @State private var errorMessage = ""
@@ -44,8 +44,13 @@ struct AddNewBookSheet: View {
                         
                     }
                     Section(header: Text("Értékelés")) {
-                        TextField("Értékelés", value: $rating, format: .number)
-                            .keyboardType(.decimalPad)
+                        Picker("Értékelés", selection: $rating){
+                            ForEach(1...5, id: \.self){ rate in
+                                Text("\(rate)").tag(rate)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        
                         TextField("Fejtsd ki szempontjaidat", text: $ratingBody)
                     }
                 }
@@ -94,5 +99,5 @@ struct AddNewBookSheet: View {
 }
 
 #Preview {
-    AddNewBookSheet(isWishlisted: true, isRead: false)
+    AddNewBookSheet(isWishlisted: false, isRead: false)
 }
