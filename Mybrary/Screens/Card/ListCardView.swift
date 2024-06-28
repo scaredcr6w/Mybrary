@@ -30,8 +30,8 @@ struct ListCardView: View {
             .padding(.trailing)
         }
         .frame(width: 340, height: 120, alignment: .leading)
-        .border(.blue)
         .clipShape(RoundedRectangle(cornerRadius: 10))
+        .contentShape(Rectangle())
     }
 }
 
