@@ -51,8 +51,8 @@ struct BookDetailView: View {
             Spacer()
         }
         .frame(width: 320,height: 500)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
         .background(colorScheme == .dark ? Color.primaryGrey : Color.white)
-        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
         .overlay( Button{
             isShowingDetail = false
         } label: {
@@ -71,5 +71,5 @@ struct StarView: View {
 }
 
 #Preview {
-    BookDetailView(isShowingDetail: .constant(true), book: Book(author: "Sumb", title: "Sum book", price: 1200, purchaseDate: Date(), bookDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque feugiat arcu, eu vehicula velit hendrerit quis. Duis justo nibh, laoreet id massa quis, sagittis commodo odio. Nulla et nisl eu nisi ornare ultricies. Sed at tempor nunc. Proin sed arcu accumsan, tempor odio at, vulputate nibh. Vivamus ultrices porttitor eros id faucibus. Nunc sit amet sem sit amet justo condimentum aliquet. Nulla sit amet velit sodales, dignissim sapien nec, dictum augue. Praesent hendrerit accumsan mollis. Duis aliquet finibus finibus. Fusce sit amet finibus massa, a convallis augue. Sed a lorem urna. Nam nisl ante, fringilla fringilla elementum a, bibendum non ligula. Mauris dignissim neque vitae erat efficitur varius. Praesent ullamcorper leo quam, eu laoreet sem fringilla sit amet.", rating: 5.0, isWishlisted: true, isRead: false))
+    BookDetailView(isShowingDetail: .constant(true), book: Book(author: "Sumb", title: "Sum book", price: 1200, purchaseDate: Date(), bookDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque feugiat arcu, eu vehicula velit hendrerit quis. Duis justo nibh, laoreet id massa quis, sagittis commodo odio. Nulla et nisl eu nisi ornare ultricies. Sed at tempor nunc. Proin sed arcu accumsan, tempor odio at, vulputate nibh. Vivamus ultrices porttitor eros id faucibus. Nunc sit amet sem sit amet justo condimentum aliquet. Nulla sit amet velit sodales, dignissim sapien nec, dictum augue. Praesent hendrerit accumsan mollis. Duis aliquet finibus finibus. Fusce sit amet finibus massa, a convallis augue. Sed a lorem urna. Nam nisl ante, fringilla fringilla elementum a, bibendum non ligula. Mauris dignissim neque vitae erat efficitur varius. Praesent ullamcorper leo quam, eu laoreet sem fringilla sit amet.", rating: 5.0, ratingBody: "Shii idk", isWishlisted: true, isRead: false))
 }
