@@ -10,6 +10,7 @@ import SwiftUI
 struct AddNewBookSheet: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) var context
+    @ObservedObject private var viewModel = AddNewBookSheetViewModel()
     var isWishlisted: Bool
     var isRead: Bool
     
@@ -76,7 +77,7 @@ struct AddNewBookSheet: View {
                                         isWishlisted: isWishlisted,
                                         isRead: isRead)
                         do {
-                            try validateForm(book: book)
+                            try viewModel.validateForm(book: book)
                             context.insert(book)
                             dismiss()
                         } catch {

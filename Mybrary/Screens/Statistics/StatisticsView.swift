@@ -12,20 +12,23 @@ import Charts
 struct StatisticsView: View {
     
     @Environment(\.modelContext) var context
-    @Query(filter: #Predicate<Book>{ $0.isWishlisted }) var statisticsData: [Book]
+    @Query var statisticsData: [Book]
+    @ObservedObject private var viewModel = StatisticsViewModel()
     
     var body: some View {
         NavigationStack{
             VStack(alignment: .leading){
-                Text("Olvasott könyvek: ")
+                Text("Olvasott könyvek: \(viewModel.getReadBooksByMonth(bookArray: statisticsData).count)")
                     .bold()
                     .font(.system(size: 24))
-                Chart{
-                    ForEach(statisticsData){ data in
-//                        BarMark(x: .value("Hónap", data.purchaseDate), y: .value("Könyvek", data.booksRead))
+                Chart {
+                    ForEach(Array(viewModel.getReadBooksByMonth(bookArray: statisticsData).enumerated()),
+                            id: \.element.month){ _, data in
+                        BarMark(x: .value("Hónap", data.month), y: .value("Könyvek", data.count))
                     }
                 }
                 .frame(height: 200)
+                .chartYScale(domain: 0...10)
             }
             .padding()
             .navigationTitle("Statisztika")
