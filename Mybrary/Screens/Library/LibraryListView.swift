@@ -34,6 +34,18 @@ struct LibraryListView: View {
                                         selectedBook = data
                                         isShowingDetail = true
                                     }
+                                    .swipeActions(edge: .leading) {
+                                        Button {
+                                            data.isRead.toggle()
+                                        } label: {
+                                            if data.isRead {
+                                                Label("Olvasatlanba", systemImage: "eye.slash")
+                                            } else {
+                                                Label("Olvasottba", systemImage: "eye")
+                                            }
+                                        }
+
+                                    }
                             }
                         }
                     }

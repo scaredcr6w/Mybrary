@@ -26,6 +26,13 @@ struct WishlistView: View {
                                     selectedBook = data
                                     isShowingDetail = true
                                 }
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                        data.isWishlisted.toggle()
+                                    } label: {
+                                        Label("Olvasatlanba", systemImage: "eye.slash")
+                                    }
+                                }
                         }
                     }
                     .onDelete { indexSet in
