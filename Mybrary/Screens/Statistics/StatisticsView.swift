@@ -12,12 +12,17 @@ import Charts
 struct StatisticsView: View {
     
     @Environment(\.modelContext) var context
+    @Environment(\.colorScheme) var colorScheme
     @Query var statisticsData: [Book]
     @ObservedObject private var viewModel = StatisticsViewModel()
+    
     var booksReadCount: Int {
         viewModel.getReadBooksByMonth(bookArray: statisticsData).reduce(0) { $0 + $1.count }
     }
     
+    var booksReadAvg: Double {
+        Double(booksReadCount) / Double(viewModel.getReadBooksByMonth(bookArray: statisticsData).count)
+    }
     
     var body: some View {
         NavigationStack{
@@ -30,6 +35,15 @@ struct StatisticsView: View {
                             id: \.element.month){ _, data in
                         BarMark(x: .value("Hónap", data.month), y: .value("Könyvek", data.count))
                     }
+                    
+                    RuleMark(y: .value("Átlag", booksReadAvg))
+                        .foregroundStyle(.yellow)
+                        .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
+                        .annotation (alignment: .leading) {
+                            Text("Átlag")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
                 }
                 .frame(height: 200)
                 .chartYScale(domain: 0...10)
