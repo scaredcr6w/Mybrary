@@ -14,11 +14,15 @@ struct StatisticsView: View {
     @Environment(\.modelContext) var context
     @Query var statisticsData: [Book]
     @ObservedObject private var viewModel = StatisticsViewModel()
+    var booksReadCount: Int {
+        viewModel.getReadBooksByMonth(bookArray: statisticsData).reduce(0) { $0 + $1.count }
+    }
+    
     
     var body: some View {
         NavigationStack{
             VStack(alignment: .leading){
-                Text("Olvasott könyvek: \(viewModel.getReadBooksByMonth(bookArray: statisticsData).count)")
+                Text("Olvasott könyvek: \(booksReadCount)")
                     .bold()
                     .font(.system(size: 24))
                 Chart {
