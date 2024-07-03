@@ -44,7 +44,13 @@ struct LibraryListView: View {
                                                 Label("Olvasottba", systemImage: "eye")
                                             }
                                         }
-
+                                        
+                                        Button {
+                                            data.isWishlisted.toggle()
+                                            data.isRead = false
+                                        } label: {
+                                            Label("Kívánságlistába", systemImage: "sparkles")
+                                        }
                                     }
                             }
                         }

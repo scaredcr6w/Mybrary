@@ -12,7 +12,6 @@ enum FormValidationError: Error, LocalizedError {
     case autorSpecialCharacters
     case invalidAuthorNameLenght
     case invalidTitle
-    case priceEqualsZero
     case invalidPriceRange
     case invalidRatingRange
     
@@ -26,8 +25,6 @@ enum FormValidationError: Error, LocalizedError {
             return "Az író neve nem lehet 50 karakternél hosszabb!"
         case .invalidTitle:
             return "A cím nem kezdődhet kisbetűvel!"
-        case .priceEqualsZero:
-            return "Az ár nem lehet 0"
         case .invalidPriceRange:
             return "Az ár nem lehet negatív!"
         case .invalidRatingRange:
@@ -40,7 +37,7 @@ class AddNewBookSheetViewModel : ObservableObject {
     
     func validateForm(book: Book) throws {
         var specialCharacters = CharacterSet.alphanumerics
-        specialCharacters.insert(charactersIn: ".")
+        specialCharacters.insert(charactersIn: " .")
         let authorspecialCharacters = specialCharacters.inverted
         let isTitleLower = book.title.first?.isLowercase ?? false
         
@@ -58,10 +55,6 @@ class AddNewBookSheetViewModel : ObservableObject {
         
         if isTitleLower {
             throw FormValidationError.invalidTitle
-        }
-        
-        if book.price == 0 {
-            throw FormValidationError.priceEqualsZero
         }
         
         if book.price < 0 {
