@@ -10,25 +10,30 @@ import SwiftData
 
 struct WishlistView: View {
     @Environment(\.modelContext) var context
-    @State private var isShowingSheet: Bool = false
+    @State private var isShowingDetailSheet: Bool = false
+    @State private var isShowingUpdateSheet: Bool = false
     @State private var isShowingDetail: Bool = false
-    @State private var selectedBook: Book?
+    @State private var bookToDetail: Book?
+    @State private var bookToUpdate: Book?
     @Query(filter: #Predicate<Book>{ $0.isWishlisted }) var wishlistData: [Book]
     
     var body: some View {
         ZStack {
             NavigationStack {
                 List {
-                    ForEach(wishlistData) { data in
+                    ForEach(wishlistData) { book in
                         Section {
-                            ListCardView(title: data.title, author: data.author, coverImage: data.coverImage)
+                            ListCardView(title: book.title, author: book.author, coverImage: book.coverImage)
                                 .onTapGesture {
-                                    selectedBook = data
+                                    bookToDetail = book
                                     isShowingDetail = true
+                                }
+                                .onLongPressGesture {
+                                    bookToUpdate = book
                                 }
                                 .swipeActions(edge: .leading) {
                                     Button {
-                                        data.isWishlisted.toggle()
+                                        book.isWishlisted.toggle()
                                     } label: {
                                         Label("Olvasatlanba", systemImage: "eye.slash")
                                     }
@@ -42,13 +47,16 @@ struct WishlistView: View {
                     }
                 }
                 .navigationTitle("Kívánságlista")
-                .sheet(isPresented: $isShowingSheet) {
+                .sheet(isPresented: $isShowingDetailSheet) {
                     AddNewBookSheet(isWishlisted: true, isRead: false)
+                }
+                .sheet(item: $bookToUpdate) { book in
+                    UpdateBookSheet(book: book)
                 }
                 .toolbar {
                     if !wishlistData.isEmpty {
                         Button("Új könyv", systemImage: "plus"){
-                            isShowingSheet = true
+                            isShowingDetailSheet = true
                         }
                     }
                 }
@@ -63,7 +71,7 @@ struct WishlistView: View {
                                 .padding()
                             Text("A kívánságlistád üres")
                             Button("Új könyv") {
-                                isShowingSheet = true
+                                isShowingDetailSheet = true
                             }
                         }
                     }
@@ -73,7 +81,7 @@ struct WishlistView: View {
             .disabled(isShowingDetail)
             
             if isShowingDetail {
-                BookDetailView(isShowingDetail: $isShowingDetail, book: selectedBook!)
+                BookDetailView(isShowingDetail: $isShowingDetail, book: bookToDetail!)
             }
         }
     }

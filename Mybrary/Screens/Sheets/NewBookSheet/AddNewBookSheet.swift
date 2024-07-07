@@ -11,7 +11,7 @@ import PhotosUI
 struct AddNewBookSheet: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) var context
-    @ObservedObject private var viewModel = AddNewBookSheetViewModel()
+    @ObservedObject private var viewModel = BookFormValidation()
     var isWishlisted: Bool
     var isRead: Bool
     

@@ -64,7 +64,7 @@ struct BookDetailView: View {
         .frame(width: 320,height: 500)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .background(colorScheme == .dark ? Color.primaryGrey : Color.white)
-        .overlay( Button{
+        .overlay( Button {
             isShowingDetail = false
         } label: {
             DismissButton()

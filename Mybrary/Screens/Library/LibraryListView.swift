@@ -12,7 +12,8 @@ struct LibraryListView: View {
     @Environment(\.modelContext) var context
     @State private var isShowingSheet: Bool = false
     @State private var isShowingDetail: Bool = false
-    @State private var selectedBook: Book?
+    @State private var bookToDetail: Book?
+    @State private var bookToUpdate: Book?
     @Query(filter: #Predicate<Book>{ $0.isWishlisted == false }) var libraryData: [Book]
     
     var isReadPage: Bool
@@ -26,19 +27,22 @@ struct LibraryListView: View {
         ZStack {
             NavigationStack {
                 List {
-                    ForEach(libraryData) { data in
-                        if data.isRead == isReadPage {
+                    ForEach(libraryData) { book in
+                        if book.isRead == isReadPage {
                             Section{
-                                ListCardView(title: data.title, author: data.author, coverImage: data.coverImage)
+                                ListCardView(title: book.title, author: book.author, coverImage: book.coverImage)
                                     .onTapGesture {
-                                        selectedBook = data
+                                        bookToDetail = book
                                         isShowingDetail = true
+                                    }
+                                    .onLongPressGesture {
+                                        bookToUpdate = book
                                     }
                                     .swipeActions(edge: .leading) {
                                         Button {
-                                            data.isRead.toggle()
+                                            book.isRead.toggle()
                                         } label: {
-                                            if data.isRead {
+                                            if book.isRead {
                                                 Label("Olvasatlanba", systemImage: "eye.slash")
                                             } else {
                                                 Label("Olvasottba", systemImage: "eye")
@@ -57,6 +61,9 @@ struct LibraryListView: View {
                 .navigationTitle("Könyvtáram")
                 .sheet(isPresented: $isShowingSheet) {
                     AddNewBookSheet(isWishlisted: false, isRead: isReadPage)
+                }
+                .sheet(item: $bookToUpdate) { book in
+                    UpdateBookSheet(book: book)
                 }
                 .toolbar {
                     if !filtered.isEmpty {
@@ -86,7 +93,7 @@ struct LibraryListView: View {
             .disabled(isShowingDetail)
             
             if isShowingDetail {
-                BookDetailView(isShowingDetail: $isShowingDetail, book: selectedBook!)
+                BookDetailView(isShowingDetail: $isShowingDetail, book: bookToDetail!)
             }
         }
     }
