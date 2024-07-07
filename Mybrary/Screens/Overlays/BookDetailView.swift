@@ -16,7 +16,6 @@ struct BookDetailView: View {
     
     var body: some View {
         ScrollView {
-            
             if let coverImage = book?.coverImage,
                let uiImage = UIImage(data: coverImage) {
                 Image(uiImage: uiImage)
@@ -28,7 +27,7 @@ struct BookDetailView: View {
             } else {
                 Image(systemName: "questionmark.circle")
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 320, height: 200)
                     .foregroundStyle(Color.gray)
                     .padding(.bottom)

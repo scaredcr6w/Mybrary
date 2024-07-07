@@ -8,20 +8,6 @@
 import SwiftUI
 
 struct HeaderScrollView: View {
-    
-    @ViewBuilder private func destinationView(for card: HeaderCards) -> some View{
-        switch card.cardTitle{
-        case "Statisztika":
-            StatisticsView()
-        case "Kihívások":
-            ChallangesView()
-        case "Év könyve":
-            Text("Év könyve")
-        default:
-            Text("Default")
-        }
-    }
-    
     @ObservedObject var viewModel = HeaderScrollViewModel()
     
     var body: some View {
@@ -29,7 +15,7 @@ struct HeaderScrollView: View {
             ScrollView(.horizontal){
                 HStack{
                     ForEach(viewModel.headerCardsArray){ card in
-                        NavigationLink(destination: destinationView(for: card)){
+                        NavigationLink(destination: viewModel.destinationView(for: card)){
                             TallCardView(cardTitle: card.cardTitle,
                                          cardDescription: card.cardDescription,
                                          cardColor: card.cardColor,

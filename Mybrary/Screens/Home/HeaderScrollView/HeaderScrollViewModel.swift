@@ -22,4 +22,17 @@ final class HeaderScrollViewModel : ObservableObject{
         HeaderCards(cardTitle: "Kihívások", cardDescription: "Nagyon nehéz", cardColor: Color.primaryPink, cardIcon: "checkmark.square"),
         HeaderCards(cardTitle: "Év könyve", cardDescription: "Az év abszolút győztese", cardColor: Color.primaryLightPink, cardIcon: "flag.checkered")
     ]
+    
+    @ViewBuilder func destinationView(for card: HeaderCards) -> some View{
+        switch card.cardTitle{
+        case "Statisztika":
+            StatisticsView()
+        case "Kihívások":
+            ChallangesView()
+        case "Év könyve":
+            Text("Év könyve")
+        default:
+            Text("Default")
+        }
+    }
 }
