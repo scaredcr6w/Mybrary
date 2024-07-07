@@ -7,7 +7,7 @@
 
 import Foundation
 
-class StatisticsViewModel : ObservableObject {
+final class StatisticsViewModel : ObservableObject {
     private let calendar = Calendar.current
     
     private var dateFormatter: DateFormatter {

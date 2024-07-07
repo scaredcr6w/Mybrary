@@ -11,16 +11,26 @@ struct ListCardView: View {
     @Environment(\.colorScheme) var colorScheme
     let title: String
     let author: String
-    let cover: String = "placeholdercover"
+    let coverImage: Data?
     
     var body: some View {
-        HStack{
-            Image(cover)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: 100, maxHeight: 100)
-                
-            VStack(alignment: .leading){
+        HStack {
+            
+            if let coverImage,
+               let uiImage = UIImage(data: coverImage) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 100, maxHeight: 100)
+            } else {
+                Image(systemName: "questionmark.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 100, maxHeight: 100)
+                    .foregroundStyle(Color.gray)
+            }
+            
+            VStack (alignment: .leading) {
                 Text(title)
                     .bold()
                     .font(.system(size: 18))
@@ -36,5 +46,5 @@ struct ListCardView: View {
 }
 
 #Preview {
-    ListCardView(title: "Feljegyzések az egérlyukból", author: "Dosztojevszkij")
+    ListCardView(title: "Feljegyzések az egérlyukból", author: "Dosztojevszkij", coverImage: nil)
 }

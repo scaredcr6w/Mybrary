@@ -21,7 +21,7 @@ struct WishlistView: View {
                 List {
                     ForEach(wishlistData) { data in
                         Section {
-                            ListCardView(title: data.title, author: data.author)
+                            ListCardView(title: data.title, author: data.author, coverImage: data.coverImage)
                                 .onTapGesture {
                                     selectedBook = data
                                     isShowingDetail = true

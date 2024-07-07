@@ -29,7 +29,7 @@ struct LibraryListView: View {
                     ForEach(libraryData) { data in
                         if data.isRead == isReadPage {
                             Section{
-                                ListCardView(title: data.title, author: data.author)
+                                ListCardView(title: data.title, author: data.author, coverImage: data.coverImage)
                                     .onTapGesture {
                                         selectedBook = data
                                         isShowingDetail = true
@@ -43,13 +43,6 @@ struct LibraryListView: View {
                                             } else {
                                                 Label("Olvasottba", systemImage: "eye")
                                             }
-                                        }
-                                        
-                                        Button {
-                                            data.isWishlisted.toggle()
-                                            data.isRead = false
-                                        } label: {
-                                            Label("Kívánságlistába", systemImage: "sparkles")
                                         }
                                     }
                             }

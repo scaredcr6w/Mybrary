@@ -33,7 +33,7 @@ enum FormValidationError: Error, LocalizedError {
     }
 }
 
-class AddNewBookSheetViewModel : ObservableObject {
+final class AddNewBookSheetViewModel : ObservableObject {
     
     func validateForm(book: Book) throws {
         var specialCharacters = CharacterSet.alphanumerics

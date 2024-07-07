@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AddNewBookSheet: View {
     @Environment(\.dismiss) private var dismiss
@@ -22,13 +23,16 @@ struct AddNewBookSheet: View {
     @State private var rating: Int = 0
     @State private var ratingBody: String = ""
     
+    @State private var selectedPhotoData: Data?
+    @State private var selectedPhoto: PhotosPickerItem?
+    
     @State private var errorMessage = ""
     @State private var isError = false
     
     var body: some View {
         NavigationStack {
             Form {
-                Section (header: Text("Könyv adatai")){
+                Section (header: Text("Könyv adatai")) {
                     TextField("Író", text: $author)
                     TextField("Cím", text: $title)
                     TextField("Ár", value: $price, format: .currency(code: Locale.current.currency?.identifier ?? "HUF"))
@@ -39,13 +43,14 @@ struct AddNewBookSheet: View {
                     TextEditor(text: $bookDescription)
                         .frame(height: 100)
                 }
+                
                 if !isWishlisted {
                     Section (header: Text("Egyéb adatok")) {
                         DatePicker("Vásárlás dátuma", selection: $purchaseDate, displayedComponents: .date)
                         
                     }
                     Section(header: Text("Értékelés")) {
-                        Picker("Értékelés", selection: $rating){
+                        Picker("Értékelés", selection: $rating) {
                             ForEach(1...5, id: \.self){ rate in
                                 Text("\(rate)").tag(rate)
                             }
@@ -54,6 +59,20 @@ struct AddNewBookSheet: View {
                         
                         TextEditor(text: $ratingBody)
                             .frame(height: 100)
+                    }
+                }
+                
+                Section {
+                    if let selectedPhotoData,
+                       let uiImage = UIImage(data: selectedPhotoData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 300)
+                    }
+                    
+                    PhotosPicker(selection: $selectedPhoto, matching: .images) {
+                        Text("Válassz képet a fotóidból...")
                     }
                 }
             }
@@ -75,7 +94,8 @@ struct AddNewBookSheet: View {
                                         rating: rating,
                                         ratingBody: ratingBody,
                                         isWishlisted: isWishlisted,
-                                        isRead: isRead)
+                                        isRead: isRead,
+                                        coverImage: selectedPhotoData)
                         do {
                             try viewModel.validateForm(book: book)
                             context.insert(book)
@@ -94,6 +114,11 @@ struct AddNewBookSheet: View {
                         Text(errorMessage)
                     })
 
+                }
+            }
+            .task(id: selectedPhoto) {
+                if let data = try? await selectedPhoto?.loadTransferable(type: Data.self) {
+                    selectedPhotoData = data
                 }
             }
         }

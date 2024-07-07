@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import SwiftData
 
 struct HeaderCards : Identifiable{
     let id = UUID()
@@ -17,7 +16,7 @@ struct HeaderCards : Identifiable{
     let cardIcon: String
 }
 
-class HeaderScrollViewModel : ObservableObject{
+final class HeaderScrollViewModel : ObservableObject{
     @Published var headerCardsArray: [HeaderCards] = [
         HeaderCards(cardTitle: "Statisztika", cardDescription: "Nézd meg az ehavi adataid", cardColor: Color.primaryMaroon, cardIcon: "chart.pie"),
         HeaderCards(cardTitle: "Kihívások", cardDescription: "Nagyon nehéz", cardColor: Color.primaryPink, cardIcon: "checkmark.square"),

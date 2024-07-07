@@ -12,31 +12,42 @@ struct BookDetailView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var isShowingDetail: Bool
     
-    var book: Book
+    var book: Book?
     
     var body: some View {
         ScrollView {
-            Image("placeholdercover")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 320, height: 200)
-                .clipped()
-                .padding(.bottom)
+            
+            if let coverImage = book?.coverImage,
+               let uiImage = UIImage(data: coverImage) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 320, height: 200)
+                    .clipped()
+                    .padding(.bottom)
+            } else {
+                Image(systemName: "questionmark.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 320, height: 200)
+                    .foregroundStyle(Color.gray)
+                    .padding(.bottom)
+            }
             
             VStack {
-                Text(book.title)
+                Text(book?.title ?? "")
                     .bold()
                     .font(.title)
-                Text(book.author)
+                Text(book?.author ?? "")
                     .font(.title2)
             }
             .padding(.bottom)
             
             HStack {
                 ForEach(1...5, id: \.self) { index in
-                    StarView(isFilled: index <= book.rating)
+                    StarView(isFilled: index <= book?.rating ?? 0)
                 }
-                Text("(\(book.rating))")
+                Text("(\(book?.rating ?? 0))")
             }
             
             VStack (alignment: .leading) {
@@ -44,7 +55,7 @@ struct BookDetailView: View {
                     .fontWeight(.semibold)
                     .font(.title3)
                     .padding(.bottom)
-                Text(book.bookDescription)
+                Text(book?.bookDescription ?? "")
             }
             .padding()
             
