@@ -15,59 +15,69 @@ struct BookDetailView: View {
     var book: Book?
     
     var body: some View {
-        ScrollView {
-            if let coverImage = book?.coverImage,
-               let uiImage = UIImage(data: coverImage) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 320, height: 200)
-                    .clipped()
-                    .padding(.bottom)
-            } else {
-                Image(systemName: "questionmark.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 320, height: 200)
-                    .foregroundStyle(Color.gray)
-                    .padding(.bottom)
-            }
-            
-            VStack {
-                Text(book?.title ?? "")
-                    .bold()
-                    .font(.title)
-                Text(book?.author ?? "")
-                    .font(.title2)
-            }
-            .padding(.bottom)
-            
-            HStack {
-                ForEach(1...5, id: \.self) { index in
-                    StarView(isFilled: index <= book?.rating ?? 0)
+        VStack {
+            ScrollView {
+                if let coverImage = book?.coverImage,
+                   let uiImage = UIImage(data: coverImage) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 320, height: 200)
+                        .clipped()
+                        .padding(.bottom)
+                } else {
+                    Image(systemName: "questionmark.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 320, height: 200)
+                        .foregroundStyle(Color.gray)
+                        .padding(.bottom)
                 }
-                Text("(\(book?.rating ?? 0))")
+                
+                VStack {
+                    Text(book?.title ?? "")
+                        .bold()
+                        .font(.title)
+                    Text(book?.author ?? "")
+                        .font(.title2)
+                }
+                .padding(.bottom)
+                
+                HStack {
+                    ForEach(1...5, id: \.self) { index in
+                        StarView(isFilled: index <= book?.rating ?? 0)
+                    }
+                    Text("(\(book?.rating ?? 0))")
+                }
+                
+                VStack (alignment: .leading) {
+                    Text("Ismertető:")
+                        .fontWeight(.semibold)
+                        .font(.title3)
+                        .padding(.bottom)
+                    Text(book?.bookDescription ?? "")
+                }
+                .padding()
+                
+                if let ratingBody = book?.ratingBody {
+                    VStack (alignment: .leading) {
+                        Text("Értékelés:")
+                            .fontWeight(.semibold)
+                            .font(.title3)
+                            .padding(.bottom)
+                        Text(ratingBody)
+                    }
+                }
             }
-            
-            VStack (alignment: .leading) {
-                Text("Ismertető:")
-                    .fontWeight(.semibold)
-                    .font(.title3)
-                    .padding(.bottom)
-                Text(book?.bookDescription ?? "")
-            }
-            .padding()
-            
-            Spacer()
         }
         .frame(width: 320,height: 500)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
         .background(colorScheme == .dark ? Color.primaryGrey : Color.white)
         .overlay( Button {
             isShowingDetail = false
         } label: {
             DismissButton()
         }, alignment: .topTrailing)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
         
 }
