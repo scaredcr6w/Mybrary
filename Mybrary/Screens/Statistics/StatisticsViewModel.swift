@@ -18,8 +18,13 @@ final class StatisticsViewModel : ObservableObject {
 
     func getReadBooksByMonth(bookArray: [Book]) -> [(month: String, count: Int)] {
         var booksByMonth: [(month: String, count: Int, order: Int)] {
-            let grouped = Dictionary(grouping: bookArray.filter { $0.isRead }) { book -> DateComponents in
-                calendar.dateComponents([.year, .month], from: book.purchaseDate)
+            let grouped = Dictionary(grouping: bookArray.filter
+                                     { $0.isRead && $0.purchaseDate != nil }
+            ) { book -> DateComponents in
+                guard let purchaseDate = book.purchaseDate else {
+                    return DateComponents()
+                }
+                return calendar.dateComponents([.year, .month], from: purchaseDate)
             }
             
             let monthCounts = grouped.map { (key, value) -> (month: String, count: Int, order: Int) in
@@ -35,8 +40,13 @@ final class StatisticsViewModel : ObservableObject {
     
     func getMonthlySpendings(bookArray: [Book]) -> [(month: String, spent: Int)] {
         var monthlySpendings: [(month: String, spent: Int, order: Int)] {
-            let grouped = Dictionary(grouping: bookArray.filter { !$0.isWishlisted }) { book -> DateComponents in
-                calendar.dateComponents([.year, .month], from: book.purchaseDate)
+            let grouped = Dictionary(grouping: bookArray.filter
+                                     { !$0.isWishlisted && $0.purchaseDate != nil }
+            ) { book -> DateComponents in
+                guard let purchaseDate = book.purchaseDate else {
+                    return DateComponents()
+                }
+                return calendar.dateComponents([.year, .month], from: purchaseDate)
             }
             
             let monthSpent = grouped.map { (key, value) -> (month: String, spent: Int, order: Int) in

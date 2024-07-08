@@ -61,9 +61,10 @@ final class BookFormValidation : ObservableObject {
             throw FormValidationError.invalidPriceRange
         }
         
-        if book.rating < 0 || book.rating > 5 {
-            throw FormValidationError.invalidRatingRange
+        if let rating = book.rating {
+            if rating < 0 || rating > 5 {
+                throw FormValidationError.invalidRatingRange
+            }
         }
-        
     }
 }

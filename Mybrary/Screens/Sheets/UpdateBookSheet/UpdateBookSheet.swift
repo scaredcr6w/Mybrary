@@ -41,7 +41,7 @@ struct UpdateBookSheet: View {
                 if !book.isWishlisted {
                     Section (header: Text("Egyéb adatok")) {
                         DatePicker("Vásárlás dátuma",
-                                   selection: $book.purchaseDate,
+                                   selection: Binding($book.purchaseDate) ?? .constant(Date()),
                                    displayedComponents: .date)
                         
                     }
@@ -53,7 +53,7 @@ struct UpdateBookSheet: View {
                         }
                         .pickerStyle(.segmented)
                         
-                        TextEditor(text: $book.ratingBody)
+                        TextEditor(text: Binding($book.ratingBody) ?? .constant(""))
                             .frame(height: 100)
                     }
                 }
