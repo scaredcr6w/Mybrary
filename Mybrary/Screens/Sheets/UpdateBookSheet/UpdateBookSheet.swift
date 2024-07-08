@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 import PhotosUI
 
 struct UpdateBookSheet: View {
@@ -15,7 +16,6 @@ struct UpdateBookSheet: View {
     
     @Bindable var book: Book
     
-    @State private var selectedPhotoData: Data?
     @State private var selectedPhoto: PhotosPickerItem?
     
     @State private var errorMessage = ""
@@ -59,7 +59,7 @@ struct UpdateBookSheet: View {
                 }
                 
                 Section {
-                    if let selectedPhotoData,
+                    if let selectedPhotoData = book.coverImage,
                        let uiImage = UIImage(data: selectedPhotoData) {
                         Image(uiImage: uiImage)
                             .resizable()
@@ -91,7 +91,7 @@ struct UpdateBookSheet: View {
                                         ratingBody: book.ratingBody,
                                         isWishlisted: book.isWishlisted,
                                         isRead: book.isRead,
-                                        coverImage: selectedPhotoData)
+                                        coverImage: book.coverImage)
                         do {
                             try viewModel.validateForm(book: book)
                             dismiss()
@@ -113,7 +113,7 @@ struct UpdateBookSheet: View {
             }
             .task(id: selectedPhoto) {
                 if let data = try? await selectedPhoto?.loadTransferable(type: Data.self) {
-                    selectedPhotoData = data
+                    book.coverImage = data
                 }
             }
         }
