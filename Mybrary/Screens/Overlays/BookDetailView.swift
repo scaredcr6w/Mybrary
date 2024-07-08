@@ -73,7 +73,9 @@ struct BookDetailView: View {
         .frame(width: 320,height: 500)
         .background(colorScheme == .dark ? Color.primaryGrey : Color.white)
         .overlay( Button {
-            isShowingDetail = false
+            withAnimation (.easeInOut) {
+                isShowingDetail.toggle()
+            }
         } label: {
             DismissButton()
         }, alignment: .topTrailing)

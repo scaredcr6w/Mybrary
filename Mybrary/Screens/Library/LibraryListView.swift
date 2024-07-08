@@ -33,7 +33,9 @@ struct LibraryListView: View {
                                 ListCardView(title: book.title, author: book.author, coverImage: book.coverImage)
                                     .onTapGesture {
                                         bookToDetail = book
-                                        isShowingDetail = true
+                                        withAnimation (.easeInOut){
+                                            isShowingDetail.toggle()
+                                        }
                                     }
                                     .onLongPressGesture {
                                         bookToUpdate = book
@@ -93,7 +95,7 @@ struct LibraryListView: View {
             .disabled(isShowingDetail)
             
             if isShowingDetail {
-                BookDetailView(isShowingDetail: $isShowingDetail, book: bookToDetail!)
+                BookDetailView(isShowingDetail: $isShowingDetail, book: bookToDetail)
             }
         }
     }
