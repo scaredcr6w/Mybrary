@@ -30,52 +30,52 @@ struct StatisticsView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
-                Text("Évi olvasott könyvek")
-                    .bold()
-                    .font(.system(size: 24))
-                Text("\(booksReadCount)")
-                    .fontWeight(.semibold)
-                    .font(.system(size: 18))
-                Chart {
-                    ForEach(Array(viewModel.getReadBooksByMonth(bookArray: statisticsData).enumerated()),
-                            id: \.element.month){ _, data in
-                        BarMark(x: .value("Hónap", data.month), y: .value("Könyvek", data.count))
-                    }
-                    
-                    RuleMark(y: .value("Átlag", booksReadAvg))
-                        .foregroundStyle(.yellow)
-                        .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
-                        .annotation (alignment: .leading) {
-                            Text("Átlag \(String(format: "%.2f", booksReadAvg))")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Text("Évi olvasott könyvek")
+                        .bold()
+                        .font(.system(size: 24))
+                    Text("\(booksReadCount)")
+                        .fontWeight(.semibold)
+                        .font(.system(size: 18))
+                    Chart {
+                        ForEach(Array(viewModel.getReadBooksByMonth(bookArray: statisticsData).enumerated()),
+                                id: \.element.month){ _, data in
+                            BarMark(x: .value("Hónap", data.month), y: .value("Könyvek", data.count))
                         }
+                        
+                        RuleMark(y: .value("Átlag", booksReadAvg))
+                            .foregroundStyle(.yellow)
+                            .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
+                            .annotation (alignment: .leading) {
+                                Text("Átlag \(String(format: "%.2f", booksReadAvg))")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                    }
+                    .frame(height: 200)
+                    .chartYScale(domain: 0...10)
                 }
-                .frame(height: 200)
-                .chartYScale(domain: 0...10)
-            }
-            .padding()
-            
-            VStack(alignment: .leading) {
-                Text("Éves kiadás")
-                    .bold()
-                    .font(.system(size: 24))
-                Text("\(yearlySpendings) Ft")
-                    .fontWeight(.semibold)
-                    .font(.system(size: 18))
+                .padding()
                 
-                Chart {
-                    ForEach(Array(viewModel.getMonthlySpendings(bookArray: statisticsData).enumerated()),
-                            id: \.element.month) { _, data in
-                        LineMark(x: .value("Hónap", data.month), y: .value("Kiadás", data.spent))
+                VStack(alignment: .leading) {
+                    Text("Éves kiadás")
+                        .bold()
+                        .font(.system(size: 24))
+                    Text("\(yearlySpendings) Ft")
+                        .fontWeight(.semibold)
+                        .font(.system(size: 18))
+                    
+                    Chart {
+                        ForEach(Array(viewModel.getMonthlySpendings(bookArray: statisticsData).enumerated()),
+                                id: \.element.month) { _, data in
+                            LineMark(x: .value("Hónap", data.month), y: .value("Kiadás", data.spent))
+                        }
                     }
                 }
             }
             .padding()
             .navigationTitle("Statisztika")
-            
-            Spacer()
         }
     }
 }

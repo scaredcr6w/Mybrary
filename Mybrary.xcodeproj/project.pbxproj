@@ -31,6 +31,7 @@
 		0F8C81A32C297DE3003D2E35 /* AddNewBookSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C81A22C297DE3003D2E35 /* AddNewBookSheet.swift */; };
 		0F94924F2C2ED73E0069931C /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F94924E2C2ED73E0069931C /* DismissButton.swift */; };
 		0F9492522C2EED8B0069931C /* BookFormValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9492512C2EED8B0069931C /* BookFormValidation.swift */; };
+		0F971CE92C3C21B5007FA229 /* BOTYView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F971CE82C3C21B5007FA229 /* BOTYView.swift */; };
 		0FA38E5A2C1C7F4700768A0F /* TallCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38E592C1C7F4700768A0F /* TallCardView.swift */; };
 		0FA38E5E2C1C949100768A0F /* HeaderScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38E5D2C1C949100768A0F /* HeaderScrollView.swift */; };
 		0FA38E612C1C9AF600768A0F /* HeaderScrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA38E602C1C9AF600768A0F /* HeaderScrollViewModel.swift */; };
@@ -83,6 +84,7 @@
 		0F8C81A22C297DE3003D2E35 /* AddNewBookSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewBookSheet.swift; sourceTree = "<group>"; };
 		0F94924E2C2ED73E0069931C /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		0F9492512C2EED8B0069931C /* BookFormValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFormValidation.swift; sourceTree = "<group>"; };
+		0F971CE82C3C21B5007FA229 /* BOTYView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BOTYView.swift; sourceTree = "<group>"; };
 		0FA38E592C1C7F4700768A0F /* TallCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallCardView.swift; sourceTree = "<group>"; };
 		0FA38E5D2C1C949100768A0F /* HeaderScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderScrollView.swift; sourceTree = "<group>"; };
 		0FA38E602C1C9AF600768A0F /* HeaderScrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderScrollViewModel.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				0F3374102BF8C5BA004B72C8 /* MainTabView.swift */,
+				0F971CE72C3C2199007FA229 /* BookOfTheYear */,
 				0F9492502C2ED7680069931C /* Overlays */,
 				0F94924D2C2ED72F0069931C /* Buttons */,
 				0F8C81A12C297DD3003D2E35 /* Sheets */,
@@ -278,6 +281,14 @@
 				0F2648B72C2DBFCF0043A108 /* BookDetailView.swift */,
 			);
 			path = Overlays;
+			sourceTree = "<group>";
+		};
+		0F971CE72C3C2199007FA229 /* BookOfTheYear */ = {
+			isa = PBXGroup;
+			children = (
+				0F971CE82C3C21B5007FA229 /* BOTYView.swift */,
+			);
+			path = BookOfTheYear;
 			sourceTree = "<group>";
 		};
 		0FA38E5F2C1C9AD700768A0F /* HeaderScrollView */ = {
@@ -446,6 +457,7 @@
 			files = (
 				0F94924F2C2ED73E0069931C /* DismissButton.swift in Sources */,
 				0F0F49A72C1D85DC00552562 /* ListCardView.swift in Sources */,
+				0F971CE92C3C21B5007FA229 /* BOTYView.swift in Sources */,
 				0FA38E5A2C1C7F4700768A0F /* TallCardView.swift in Sources */,
 				0FA38E612C1C9AF600768A0F /* HeaderScrollViewModel.swift in Sources */,
 				0F3EADE22C2215CA00265BE1 /* StatisticsView.swift in Sources */,

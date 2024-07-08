@@ -34,40 +34,46 @@ struct BookDetailView: View {
                         .padding(.bottom)
                 }
                 
-                VStack {
-                    Text(book?.title ?? "")
-                        .bold()
-                        .font(.title)
-                    Text(book?.author ?? "")
-                        .font(.title2)
-                }
-                .padding(.bottom)
-                
-                HStack {
-                    ForEach(1...5, id: \.self) { index in
-                        StarView(isFilled: index <= book?.rating ?? 0)
+                if let book = book {
+                    VStack {
+                        Text(book.title)
+                            .bold()
+                            .font(.title)
+                        Text(book.author)
+                            .font(.title2)
                     }
-                    Text("(\(book?.rating ?? 0))")
-                }
-                
-                VStack (alignment: .leading) {
-                    Text("Ismertető:")
-                        .fontWeight(.semibold)
-                        .font(.title3)
-                        .padding(.bottom)
-                    Text(book?.bookDescription ?? "")
-                }
-                .padding()
-                
-                if let ratingBody = book?.ratingBody {
+                    .padding(.bottom)
+                    
+                    HStack {
+                        ForEach(1...5, id: \.self) { index in
+                            StarView(isFilled: index <= book.rating ?? 0)
+                        }
+                        Text("(\(book.rating ?? 0))")
+                    }
+                    
                     VStack (alignment: .leading) {
-                        Text("Értékelés:")
+                        Text("Ismertető:")
                             .fontWeight(.semibold)
                             .font(.title3)
                             .padding(.bottom)
-                        Text(ratingBody)
+                        Text(book.bookDescription)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .padding()
+                    
+                    if let ratingBody = book.ratingBody {
+                        VStack (alignment: .leading) {
+                            Text("Értékelés:")
+                                .fontWeight(.semibold)
+                                .font(.title3)
+                                .padding(.bottom)
+                            Text(ratingBody)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        .padding()
                     }
                 }
+                
             }
         }
         .frame(width: 320,height: 500)

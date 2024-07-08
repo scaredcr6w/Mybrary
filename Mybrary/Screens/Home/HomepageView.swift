@@ -17,13 +17,19 @@ struct HomepageView: View {
                             .bold()
                             .font(.system(size: 30))
                     Link(destination: URL(string: "https://www.libri.hu/sikerlista/?heti")!, label: {
-                        WideCardView(cardTitle: "Libri Sikerlista", cardDescription: "Legforróbb könyvek 🥵", cardImage: "bookCardRead")
+                        WideCardView(cardTitle: "Libri Sikerlista",
+                                     cardDescription: "Legforróbb könyvek 🥵",
+                                     cardImage: "podium")
                     })
                     Link(destination: URL(string: "https://www.libri.hu/ujdonsagok/")!, label: {
-                        WideCardView(cardTitle: "Új megjelenések", cardDescription: "Nagyon érdekes történetek?", cardImage: "bookCardRead")
+                        WideCardView(cardTitle: "Új megjelenések",
+                                     cardDescription: "Nagyon érdekes történetek?",
+                                     cardImage: "newBooks")
                     })
                     Link(destination: URL(string: "https://www.libri.hu/elorendelheto/")!, label: {
-                        WideCardView(cardTitle: "Előrendelhetők", cardDescription: "Etesd a kapitalizmus gyomrát!", cardImage: "bookCardRead")
+                        WideCardView(cardTitle: "Előrendelhetők",
+                                     cardDescription: "Etesd a kapitalizmus gyomrát!",
+                                     cardImage: "preOrder")
                     })
                 }
                 .padding(.bottom, 30)

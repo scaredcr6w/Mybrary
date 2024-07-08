@@ -30,7 +30,7 @@ final class HeaderScrollViewModel : ObservableObject{
         case "Kihívások":
             ChallangesView()
         case "Év könyve":
-            Text("Év könyve")
+            BOTYView()
         default:
             Text("Default")
         }

@@ -47,8 +47,8 @@ struct UpdateBookSheet: View {
                     }
                     Section(header: Text("Értékelés")) {
                         Picker("Értékelés", selection: $book.rating) {
-                            ForEach(1...5, id: \.self){ rate in
-                                Text("\(rate)").tag(rate)
+                            ForEach(1...5, id: \.self){ rating in
+                                Text("\(rating)").tag(rating)
                             }
                         }
                         .pickerStyle(.segmented)
