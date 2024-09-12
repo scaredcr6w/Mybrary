@@ -35,7 +35,7 @@ struct StatisticsView: View {
                     Text("Évi olvasott könyvek")
                         .bold()
                         .font(.system(size: 24))
-                    Text("\(booksReadCount)")
+                    Text("\(booksReadCount) db")
                         .fontWeight(.semibold)
                         .font(.system(size: 18))
                     Chart {
@@ -56,7 +56,6 @@ struct StatisticsView: View {
                     .frame(height: 200)
                     .chartYScale(domain: 0...10)
                 }
-                .padding()
                 
                 VStack(alignment: .leading) {
                     Text("Éves kiadás")
@@ -72,6 +71,8 @@ struct StatisticsView: View {
                             LineMark(x: .value("Hónap", data.month), y: .value("Kiadás", data.spent))
                         }
                     }
+                    .frame(height: 200)
+                    .chartYScale(domain: 0...25000)
                 }
             }
             .padding()

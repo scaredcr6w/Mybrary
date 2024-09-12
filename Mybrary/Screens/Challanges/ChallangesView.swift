@@ -13,12 +13,35 @@ struct ChallangesView: View {
     @Environment(\.modelContext) private var context
     @Query var challangesData: [Challange] = []
     
+    var completedChallanges: Int {
+        challangesData.filter { $0.isCompleted }.count
+    }
+    
+    var challangesCount: Int {
+        challangesData.count
+    }
+    
+    var completedChallangesPercentage: Double {
+        Double(completedChallanges) / Double(challangesCount)
+    }
+    
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             ScrollView {
-                LazyVStack(spacing: 16){
+                LazyVStack(spacing: 16) {
                     Spacer()
-                    ForEach(challangesData){ challange in
+                    VStack {
+                        Text("Teljesített kihívások: ")
+                            .font(.title2)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 25)
+                    HStack {
+                        ProgressView(value: completedChallangesPercentage)
+                        Text("\(completedChallanges) / \(challangesCount)")
+                    }
+                    .padding(.horizontal, 25)
+                    ForEach(challangesData) { challange in
                         ChallangeCardView(isCompleted: challange.isCompleted,
                                           challange: challange.challange,
                                           completedDate: challange.completedDate ?? "")
@@ -53,6 +76,3 @@ struct ChallangesView: View {
     }
 }
 
-#Preview {
-    ChallangesView()
-}
